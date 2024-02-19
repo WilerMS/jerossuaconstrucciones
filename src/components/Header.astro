@@ -1,5 +1,6 @@
 ---
 import Social from './Social.astro'
+import Menu from './icons/Menu.astro'
 
 const currentPath = Astro.url.pathname;
 const isHome = currentPath === '/'
@@ -15,10 +16,12 @@ const isPromo = currentPath === '/promociones-inmobiliarias'
     class="w-full flex items-center justify-between px-4 lg:hidden"
   >
     <div class="logo flex h-full center">
-      <img class="w-[150px]" src="/public/logos/logo2.png" alt="Jerossua Construcciones" />
+      <img class="w-[150px]" src="/logos/logo2.png" alt="Jerossua Construcciones" />
     </div>
     <div class="mobile-menu text-white relative">
-      <button id="mobile-menu-btn"></button>
+      <button id="mobile-menu-btn">
+        <Menu />
+      </button>
       <div class="hidden fixed left-0 top-[80px] w-full bg-white text-black p-10 transition-all">
         <ul class="h-full center flex flex-col gap-[40px] uppercase transition-all">
           <li>
@@ -44,7 +47,7 @@ const isPromo = currentPath === '/promociones-inmobiliarias'
     <div class="logo flex h-full center">
       <img
         class="h-[calc(100%_-_10px)]"
-        src="public/logos/logo2.png"
+        src="/logos/logo2.png"
         alt="Jerossua Construcciones"
       />
     </div>
@@ -107,6 +110,17 @@ const isPromo = currentPath === '/promociones-inmobiliarias'
     $("#header .mobile-menu > div").style.display = display;
     $("#mobile-menu-btn").innerHTML = buttonIcon;
   });
+
+  const url = window.location.href;
+
+  if (url.includes('/promociones-inmobiliarias')) {
+    $('.menu').classList.remove('text-white')
+    $('.menu').classList.add('text-black')
+  }
+
+  console.log({ url })
+
+
 </script>
 
 <style>
