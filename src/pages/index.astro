@@ -1,10 +1,153 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Carousel from '../components/Carousel'
+import Footer from '../components/Footer.astro'
+import Card from '../components/Card.astro';
+
+const images = [
+  "public/images/hero_heating_03.jpg",
+  "public/images/services/24.webp",
+  "public/images/services/25.jpg",
+  "public/images/services/24.jpg",
+  "public/images/services/25.webp"
+]
+
+const services = [
+    {
+      id: '1',
+      title: 'Fontanería',
+      description: 'Ya sea que necesites reparar una fuga, instalar un nuevo sistema o realizar mantenimiento preventivo, nuestro equipo de expertos en fontanería ofrece soluciones rápidas y eficientes para todo tipo de instalaciones y problemas hidráulicos.',
+      images: [
+        'public/images/services/16.jpg',
+        'public/images/services/13.jpg',
+        'public/images/services/12.jpg'
+      ]
+    },
+    {
+      id: '2',
+      title: 'Reformas Integrales',
+      description: 'Transformamos tu espacio con reformas integrales personalizadas. Desde renovaciones de cocinas y baños hasta la remodelación completa de viviendas, nuestro equipo combina diseño, funcionalidad y calidad para crear el hogar de tus sueños.',
+      images: [
+        'public/images/services/10.jpg',
+        'public/images/services/24.jpg',
+        'public/images/services/17.jpg'
+      ]
+    },
+    {
+      id: '4',
+      title: 'Albañilería',
+      description: 'Especialistas en albañilería, ofrecemos servicios desde pequeñas reparaciones hasta grandes construcciones. Nuestro equipo de profesionales garantiza acabados de alta calidad, respetando los plazos y presupuestos acordados.',
+      images: [
+        'public/images/services/21.jpg',
+        'public/images/services/26.jpg',
+        'public/images/services/12.jpg'
+      ]
+    },
+    {
+      id: '5',
+      title: 'Pintura',
+      description: 'Nuestro servicio de pintura da vida a tus espacios, con una amplia gama de colores y acabados. Trabajamos con precisión y cuidado, asegurando un resultado impecable que refleje tu estilo personal y embellezca tu hogar u oficina.',
+      images: [
+        'public/images/services/25.jpg',
+        'public/images/services/1.jpg',
+      ]
+    },
+    {
+      id: '3',
+      title: 'Vallados y Cercados',
+      description: 'Ofrecemos soluciones de vallado y cercado para aumentar la seguridad y la estética de tu propiedad. Desde cercas de madera hasta vallas metálicas, personalizamos cada proyecto para satisfacer tus necesidades y preferencias estilísticas.',
+      images: [
+        'public/images/hero_heating_02.jpg',
+        'public/images/hero_heating_01.jpg',
+        'public/images/hero_heating_03.jpg',
+      ]
+    },
+    /* {
+      id: '6',
+      title: 'Jardinería',
+      description: 'Nuestro servicio de jardinería personalizado transforma y mantiene tu espacio exterior. Desde diseño paisajístico hasta mantenimiento regular, nuestro equipo trabaja para crear y cuidar jardines que realcen la belleza de tu hogar o negocio.',
+      images: [
+        'public/images/hero_heating_02.jpg',
+        'public/images/hero_heating_01.jpg',
+        'public/images/hero_heating_03.jpg',
+      ]
+    }, */
+  ]
 ---
 
-<Layout 
+<Layout
   title="Jerossua Construcciones" 
   description='"Expertos en construcción y reformas de viviendas con más de 20 años de experiencia. Transformamos tus espacios con calidad, innovación y atención personalizada. ¡Haz realidad la casa de tus sueños!'
 >
-	
+  <section id="home" class="w-full h-screen flex justify-center flex-col">
+    <div class="relative w-full h-full center">
+      <Carousel images={images} client:load/>
+      <div class="absolute md:w-[800px] md:h-[200px] z-10 text-center w-full h-[120px]">
+        <h1 class="md:text-[4rem] leading-none font-bold text-white md:mb-7 shadow-text text-[2rem] mb-2.5">
+          JEROSSUA CONSTRUCCIONES
+        </h1>
+        <button class="text-white bg-[#d85427] font-bold rounded-full py-4 px-6 shadow-lg cursor-pointer transition-all duration-300 ease-in-out hover:scale-105">
+          <a href="tel:346639130333" target="&quot;_blank&quot;" class="">Pide Presupuesto</a>
+        </button>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-center bg-[#d85427] h-[150px]">
+      <div class="p-2 lg:p-0 relative text-white w-full md:max-w-[1100px]">
+        <div class="absolute top-4 left-2 lg:left-0 py-4 uppercase text-xs font-bold">Promociones</div>
+        <div class="h-full flex justify-between items-center py-10 mt-2">
+          <div class="text-2xl lg:text-4xl font-extrabold uppercase">
+            <span>Oportunidad</span><br>
+            <span>Inmobiliaria 2023 RD</span>
+          </div>
+          <a href="/oportunidad-inmobiliaria-rd.php" class="group bg-white text-red-600 font-bold rounded-full py-2 px-6 shadow-lg flex items-center cursor-pointer">
+            <span>Conoce más..</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6 ml-2">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="w-full m-auto md:max-w-[1100px] mt-[60px] p-2 lg:p-0">
+    <h2 class="text-2xl mt-6 mb-3 uppercase">SOBRE NOSOTROS</h2>
+    <hr>
+    <br>
+    <div class="w-full flex flex-col lg:flex-row gap-[25px]">
+      <img class="w-full lg:w-[50%]" src="/public/images/services/24.webp" alt="">
+      <div>
+        <h3 class="text-2xl lg:text-3xl font-semibold uppercase mb-4 text-center lg:text-justify">NOS REGIMOS POR VALORES FUNDAMENTALES</h3>
+        <p class="w-full text-justify leading-6">
+          Con más de <b>30 años de experiencia</b> en el desarrollo de obras y proyectos a nivel nacional e internacional, nuestra empresa se distingue por su compromiso con la calidad, la cual aseguramos mediante una mano de obra altamente cualificada, el uso de materiales de primera calidad y por la constante innovación en nuestras técnicas de trabajo; lo que nos permite garantizar una ejecución eficiente y en <b>tiempos récord.</b>
+          <br><br>Nuestra visión empresarial se centra en el desarrollo integral, abarcando la capacitación continua de nuestro equipo de profesionales y la incorporación de la tecnología más avanzada en productos, maquinaria y métodos de trabajo. Ofrecemos a nuestros clientes una <b>asesoría personalizada</b>, asegurando que sus proyectos se realicen conforme a sus expectativas y logrando su plena satisfacción.
+          <br><br>Nos responsabilizamos de garantizar la inversión de nuestros clientes en todos los aspectos, desde el diseño hasta la selección de materiales y la adaptación a sus necesidades específicas. Adaptamos cada proyecto a los requisitos del cliente sin comprometer nuestra profesionalidad y estándares de calidad.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="w-full m-auto md:max-w-[1100px] mt-[60px] p-2 lg:p-0">
+    <h2 class="text-2xl mt-6 mb-3 uppercase">NUESTROS SERVICIOS</h2>
+    <hr>
+    <br>
+    <!-- LO SIGUIENTE SE GENERA EN main.js -->
+    <div id="services-items" class="grid grid-cols-1 lg:grid-cols-3 gap-[30px]">
+      {services.map(service => (
+        <Card
+          title={service.title} 
+          description={service.description} 
+          images={service.images} 
+        />
+      ))}
+    </div>
+  </section>
+
+  <section id="gallery" class="w-full m-auto md:max-w-[1100px] mt-[60px] p-2 lg:p-0">
+    <h2 class="text-2xl mt-6 mb-3 uppercase">GALERÍA DE ÚLTIMOS PROYECTOS</h2>
+    <hr>
+  </section>
+
+  <Footer />
 </Layout>

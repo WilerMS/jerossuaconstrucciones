@@ -1,0 +1,142 @@
+---
+import Social from './Social.astro'
+
+---
+
+<header id="header" class="h-[80px] fixed z-[100] w-full lg:px-[50px] lg:h-[120px] center transition-all">
+  <nav
+    id="mobile-nav"
+    class="w-full flex items-center justify-between px-4 lg:hidden"
+  >
+    <div class="logo flex h-full center">
+      <img class="w-[150px]" src="/public/logos/logo2.png" alt="Jerossua Construcciones" />
+    </div>
+    <div class="mobile-menu text-white relative">
+      <button id="mobile-menu-btn"></button>
+      <div class="hidden fixed left-0 top-[80px] w-full bg-white text-black p-10 transition-all">
+        <ul class="h-full center flex flex-col gap-[40px] uppercase transition-all">
+          <li>
+            <a
+              href="/#home"
+              class="active"
+              >Inicio</a>
+          </li>
+          <li class="menu-mobile-servicios">
+            <a
+              href="#"
+              >Servicios</a
+            >
+            <ul class="submenu ">
+              <li><a href="/pais-vasco.php" class="text-black">Vitoria Gasteiz</a></li>
+              <li><a href="/republica-dominicana.php" class="text-black">Rep. Dominicana</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#footer">Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- DESKTOP NAV SECTION -->
+  <nav class="hidden lg:flex items-center justify-between h-full w-full md:max-w-[1000px]">
+    <div class="logo flex h-full center">
+      <img
+        class="h-[calc(100%_-_10px)]"
+        src="public/logos/logo2.png"
+        alt="Jerossua Construcciones"
+      />
+    </div>
+    <ul class="menu h-full center flex gap-[40px] uppercase text-white transition-all">
+      <li>
+        <a href="/#home" class="active">Inicio</a>
+      </li>
+      <li class="menu-servicios h-full flex items-center justify-center relative">
+        <a href="#" class="<?php echo $active == 'services' ? 'active' : ''; ?>">Servicios</a>
+        <ul class="submenu hidden absolute rounded-sm pt-2.5 border-t-7 border-[#d85427] overflow-hidden bg-white min-w-[220px] shadow-lg z-10 top-[100px] left-[-20px]">
+          <li class="text-black block text-left transition-all duration-200 ease-in-out hover:text-[#d85427] hover:border-l-3 hover:border-[#d85427] hover:bg-[#ffefd15a]">
+            <a class="block h-full px-4 py-5" href="/pais-vasco.php">Vitoria Gasteiz</a>
+          </li>
+          <li class="text-black block text-left transition-all duration-200 ease-in-out hover:text-[#d85427] hover:border-l-3 hover:border-[#d85427] hover:bg-[#ffefd15a]">
+            <a class="block h-full px-4 py-5" href="/republica-dominicana.php">Rep. Dominicana</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#footer" class="<?php echo $active == 'contact' ? 'active' : ''; ?>">Contacto</a>
+      </li>
+    </ul>
+  </nav>
+
+ <Social />
+</header>
+
+<script>
+
+  const $ = (selector: string) => document.querySelector(selector) as HTMLElement
+
+  window.addEventListener("scroll", (e) => {
+    $("#header").classList.toggle("background", window.scrollY > 360);
+  });
+
+  const menuIcon = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+      <path d="M4 6l16 0"></path>
+      <path d="M4 12l16 0"></path>
+      <path d="M4 18l16 0"></path>
+    </svg>
+  `;
+
+  const closeMenuIcon = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+      <path d="M18 6l-12 12"></path>
+      <path d="M6 6l12 12"></path>
+    </svg>
+  `;
+
+  let menuabierto = false;
+
+  $("#mobile-menu-btn").addEventListener("click", (e) => {
+    menuabierto = !menuabierto;
+    const buttonIcon = menuabierto ? closeMenuIcon : menuIcon;
+    const display = menuabierto ? "block" : "none";
+
+    $("#header .mobile-menu > div").style.display = display;
+    $("#mobile-menu-btn").innerHTML = buttonIcon;
+  });
+</script>
+
+<style>
+
+  #header.background {
+    background: white;
+  }
+
+  #header.background nav > ul,
+  #header.background > ul,
+  #header.background .mobile-menu {
+    color: black;
+  }
+
+  .menu a.active {
+    font-weight: bold;
+    padding-bottom: 15px;
+    border-bottom: 5px solid #d85427;
+  }
+
+  .menu-servicios a.active {
+    margin-top: 20px;
+  }
+
+  .menu-servicios:hover .submenu {
+    display: block;
+    opacity: 1;
+  }
+
+  .menu-servicios .submenu {
+    box-shadow: 0 4px 9px 0 rgba(0,0,0,0.2);
+  }
+</style>
