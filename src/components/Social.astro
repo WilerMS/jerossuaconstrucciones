@@ -2,11 +2,17 @@
 import Facebook from './icons/Facebook.astro'
 import Instagram from './icons/Instagram.astro'
 import Whatsapp from './icons/Whatsapp.astro'
+
+interface Props {
+  color: string
+}
+
+const { color } = Astro.props
 ---
 
 <ul
   id="social"
-  class="lg:flex ml-[40px] h-full center flex gap-[20px] uppercase font-light text-white"
+  class={`lg:flex ml-[40px] h-full center flex gap-[20px] uppercase font-light ${color}`}
 >
   <li>
     <a href="https://www.facebook.com/juanjscalcagno" title="Síguenos en Facebook">

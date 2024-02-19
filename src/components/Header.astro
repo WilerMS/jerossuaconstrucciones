@@ -5,11 +5,11 @@ const currentPath = Astro.url.pathname;
 const isHome = currentPath === '/'
 const isServices = !isHome
 
-console.log({ currentPath })
+const isPromo = currentPath === '/promociones-inmobiliarias'
 
 ---
 
-<header id="header" class="h-[80px] fixed z-[100] w-full lg:px-[50px] lg:h-[120px] center transition-all">
+<header id="header" class={`h-[80px] fixed top-0 z-[100] w-full lg:px-[50px] lg:h-[120px] center transition-all ${isPromo ? "bg-white" : ""}`}>
   <nav
     id="mobile-nav"
     class="w-full flex items-center justify-between px-4 lg:hidden"
@@ -48,7 +48,7 @@ console.log({ currentPath })
         alt="Jerossua Construcciones"
       />
     </div>
-    <ul class="menu h-full center flex gap-[40px] uppercase text-white transition-all">
+    <ul class={`menu h-full center flex gap-[40px] uppercase transition-all ${isPromo ? "text-black" : "text-white"}`}>
       <li>
         <a href="/#home" class={isHome ? "active" : ""}>Inicio</a>
       </li>
@@ -69,7 +69,7 @@ console.log({ currentPath })
     </ul>
   </nav>
 
- <Social />
+ <Social color={`${isPromo ? "text-black" : "text-white"}`} />
 </header>
 
 <script>
