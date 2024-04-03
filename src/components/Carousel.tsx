@@ -20,7 +20,7 @@ const Carousel: FC<CarouselProps> = ({ images }) => {
 
   return (
     <div className={`relative carousel flex flex-col items-center justify-center w-full h-full transition-transform duration-500`}>
-      <div className="z-10 absolute top-0 left-0 w-full h-full bg-black opacity-20 pointer-events-none"></div>
+      <div className="z-10 absolute top-0 left-0 w-full h-full bg-black opacity-40 pointer-events-none"></div>
       {images.map((image, index) => (
         <img key={index} src={image} className={`absolute w-full h-full object-cover ${index === currentIndex ? 'current' : 'next'}`} />
       ))}
