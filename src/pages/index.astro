@@ -3,76 +3,66 @@ import Layout from '../layouts/Layout.astro';
 import Carousel from '../components/Carousel'
 import Footer from '../components/Footer.astro'
 import Card from '../components/Card.astro';
+import Gallery from '../components/Gallery.astro'
 
 const images = [
-  "/images/services/24.webp",
-  "/images/hero_heating_03.jpg",
-  "/images/services/25.jpg",
+  "/images/services/IMG_0561.jpg",
   "/images/services/24.jpg",
-  "/images/services/25.webp"
+  "/images/services/8.jpg",
+  "/images/services/21.jpg",
 ]
 
 const services = [
-    {
-      id: '1',
-      title: 'Fontanería',
-      description: 'Ya sea que necesites reparar una fuga, instalar un nuevo sistema o realizar mantenimiento preventivo, nuestro equipo de expertos en fontanería ofrece soluciones rápidas y eficientes para todo tipo de instalaciones y problemas hidráulicos.',
-      images: [
-        '/images/services/16.jpg',
-        '/images/services/13.jpg',
-        '/images/services/12.jpg'
-      ]
-    },
-    {
-      id: '2',
-      title: 'Reformas Integrales',
-      description: 'Transformamos tu espacio con reformas integrales personalizadas. Desde renovaciones de cocinas y baños hasta la remodelación completa de viviendas, nuestro equipo combina diseño, funcionalidad y calidad para crear el hogar de tus sueños.',
-      images: [
-        '/images/services/10.jpg',
-        '/images/services/24.jpg',
-        '/images/services/17.jpg'
-      ]
-    },
-    {
-      id: '4',
-      title: 'Albañilería',
-      description: 'Especialistas en albañilería, ofrecemos servicios desde pequeñas reparaciones hasta grandes construcciones. Nuestro equipo de profesionales garantiza acabados de alta calidad, respetando los plazos y presupuestos acordados.',
-      images: [
-        '/images/services/21.jpg',
-        '/images/services/26.jpg',
-        '/images/services/12.jpg'
-      ]
-    },
-    {
-      id: '5',
-      title: 'Pintura',
-      description: 'Nuestro servicio de pintura da vida a tus espacios, con una amplia gama de colores y acabados. Trabajamos con precisión y cuidado, asegurando un resultado impecable que refleje tu estilo personal y embellezca tu hogar u oficina.',
-      images: [
-        '/images/services/25.jpg',
-        '/images/services/1.jpg',
-      ]
-    },
-    {
-      id: '3',
-      title: 'Vallados y Cercados',
-      description: 'Ofrecemos soluciones de vallado y cercado para aumentar la seguridad y la estética de tu propiedad. Desde cercas de madera hasta vallas metálicas, personalizamos cada proyecto para satisfacer tus necesidades y preferencias estilísticas.',
-      images: [
-        '/images/hero_heating_02.jpg',
-        '/images/hero_heating_01.jpg',
-        '/images/hero_heating_03.jpg',
-      ]
-    },
-    /* {
-      id: '6',
-      title: 'Jardinería',
-      description: 'Nuestro servicio de jardinería personalizado transforma y mantiene tu espacio exterior. Desde diseño paisajístico hasta mantenimiento regular, nuestro equipo trabaja para crear y cuidar jardines que realcen la belleza de tu hogar o negocio.',
-      images: [
-        '/images/hero_heating_02.jpg',
-        '/images/hero_heating_01.jpg',
-        '/images/hero_heating_03.jpg',
-      ]
-    }, */
-  ]
+  {
+    id: '1',
+    title: 'Fontanería',
+    description: 'Ya sea que necesites reparar una fuga, instalar un nuevo sistema o realizar mantenimiento preventivo, nuestro equipo de expertos en fontanería ofrece soluciones rápidas y eficientes para todo tipo de instalaciones y problemas hidráulicos.',
+    images: [
+      '/images/services/IMG_0334.jpg',
+      '/images/services/12.jpg',
+      '/images/services/14.jpg',
+    ]
+  },
+  {
+    id: '2',
+    title: 'Reformas Integrales',
+    description: 'Transformamos tu espacio con reformas integrales personalizadas. Desde renovaciones de cocinas y baños hasta la remodelación completa de viviendas, nuestro equipo combina diseño, funcionalidad y calidad para crear el hogar de tus sueños.',
+    images: [
+      '/images/services/10.jpg',
+      '/images/services/IMG_20240316_123108_232.jpeg',
+      '/images/services/vath1.jpeg'
+    ]
+  },
+  {
+    id: '4',
+    title: 'Albañilería',
+    description: 'Especialistas en albañilería, ofrecemos servicios desde pequeñas reparaciones hasta grandes construcciones. Nuestro equipo de profesionales garantiza acabados de alta calidad, respetando los plazos y presupuestos acordados.',
+    images: [
+      '/images/services/21.jpg',
+      '/images/services/11.jpg',
+      '/images/services/23.jpg',
+      '/images/services/12.jpg'
+    ]
+  },
+  {
+    id: '5',
+    title: 'Pintura',
+    description: 'Nuestro servicio de pintura da vida a tus espacios, con una amplia gama de colores y acabados. Trabajamos con precisión y cuidado, asegurando un resultado impecable que refleje tu estilo personal y embellezca tu hogar u oficina.',
+    images: [
+      '/images/services/25.jpg',
+      '/images/services/1.jpg',
+    ]
+  },
+  {
+    id: '3',
+    title: 'Vallados y Cercados',
+    description: 'Ofrecemos soluciones de vallado y cercado para aumentar la seguridad y la estética de tu propiedad. Desde cercas de madera hasta vallas metálicas, personalizamos cada proyecto para satisfacer tus necesidades y preferencias estilísticas.',
+    images: [
+      '/images/services/sanaaja.jpeg',
+      '/images/services/IMG_20240316_123241_951.jpeg',
+    ]
+  }
+]
 ---
 
 <Layout
@@ -116,7 +106,7 @@ const services = [
     <hr>
     <br>
     <div class="w-full flex flex-col lg:flex-row gap-[25px]">
-      <img class="w-full lg:w-[50%]" src="/images/services/24.webp" alt="">
+      <img class="w-full lg:w-[50%]" src="/images/services/reneder.jpeg" alt="">
       <div>
         <h3 class="text-2xl lg:text-3xl font-semibold uppercase mb-4 text-center lg:text-justify">NOS REGIMOS POR VALORES FUNDAMENTALES</h3>
         <p class="w-full text-justify leading-6">
@@ -147,6 +137,8 @@ const services = [
   <section id="gallery" class="w-full m-auto md:max-w-[1100px] mt-[60px] p-2 lg:p-0">
     <h2 class="text-2xl mt-6 mb-3 uppercase">GALERÍA DE ÚLTIMOS PROYECTOS</h2>
     <hr>
+    <br>
+    <Gallery />
   </section>
 
   <Footer />
